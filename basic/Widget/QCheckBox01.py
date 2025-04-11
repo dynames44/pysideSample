@@ -1,20 +1,11 @@
-import os
 import sys
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QCheckBox, QWidget, QVBoxLayout
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QPushButton, QLabel, QCheckBox, QWidget, QVBoxLayout
 
-class MainWindow(QMainWindow):
+class MainWindow(BaseWindow):
     def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle("QCheckBox 예제")
-        self.setGeometry(100, 100, 400, 300)
-        self.setFixedSize(400, 300)
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
         
-        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
-        self.setWindowIcon(QIcon(icon_path))
+        super().__init__("QCheckBox 예제")
 
         # 메인 컨테이너
         container = QWidget()
@@ -51,8 +42,11 @@ class MainWindow(QMainWindow):
         else:
             self.output_label.setText("❌ 체크되지 않았습니다.")
 
-if __name__ == "__main__":
+def run():
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
+
+if __name__ == "__main__":
+    run()

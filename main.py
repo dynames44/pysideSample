@@ -1,19 +1,6 @@
-import sys
-from PySide6.QtWidgets import QApplication, QMainWindow ,QLabel
+from basic.Widget import *
 
-class MainWindow(QMainWindow): # 메인 윈도우를 정의
-
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("첫 번째 PySide6 앱")
-        self.setGeometry(100, 100, 600, 400)
-        
-        #fpdlqmf cnrk 
 
 if __name__ == "__main__":
-    
-    # sys.argv: 프로그램 실행 시 전달되는 인자들 (없어도 되지만 관습적으로 넣음)
-    app = QApplication(sys.argv) # QApplication: 프로그램 전체 객체
-    window = MainWindow() # 메인 윈도우(MainWindow 클래스) 인스턴스 생성
-    window.show() # 창을 화면에 띄움 (안 하면 안 보임!)
-    sys.exit(app.exec()) # 이벤트 루프 실행: 프로그램이 종료될 때까지 GUI 가 사용자 이벤트(클릭, 키보드 입력 등)를 기다림
+    textEdit.run() # QTextEdit Sample
+    checkBox.run() # QCheckBox Sample

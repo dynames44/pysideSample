@@ -1,20 +1,11 @@
-import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
 from PySide6.QtWidgets import QApplication, QTextEdit, QLabel, QPushButton, QWidget, QVBoxLayout, QHBoxLayout
 
-
-
-
-
-
-
 class MainWindow(BaseWindow):
     def __init__(self):
-        super().__init__("test")
 
-
+        super().__init__("QtextEdit 예제")
         container = QWidget()
         layout = QVBoxLayout()
         self.setCentralWidget(container)
@@ -102,9 +93,13 @@ class MainWindow(BaseWindow):
         self.text_edit.setPlaceholderText("여기에 텍스트를 입력하세요...")
         self.label.setText("[입력 초기화....]")
 
-
-if __name__ == "__main__":
+def run():
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
+
+if __name__ == "__main__":
+    run()
+
+

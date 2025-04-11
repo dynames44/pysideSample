@@ -22,21 +22,31 @@
 
 11단계 (심화)	고급 테마 & 커스텀 위젯	QSS (CSS 같은 스타일), 애니메이션
 
-
-
 QSlider	슬라이더
 
 QProgressBar	진행 표시 바
 
 4강 QPushButton Signal
+
 5강 QLabel QPixmap 이미지
+
 6강 QLineEdit
+
 7강 텍스트에디트
+
 8강 QMessageBox
+
 9강 QCheckBox
+
 10강 QRadioButton
+
 11강 QComboBox
+
 12강 QSizePolicy
+
 13강 QGridLayout
+
 14강 QTablWidget
+
 15강 QListWidget
+

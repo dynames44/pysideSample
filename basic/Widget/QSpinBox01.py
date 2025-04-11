@@ -1,16 +1,21 @@
+import os
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QSpinBox, QLabel, QPushButton, QWidget, QVBoxLayout
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QApplication, QMainWindow, QSpinBox, QLabel, QPushButton, QWidget, QVBoxLayout
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
         self.setWindowTitle("QSpinBox 예제")
-        self.setGeometry(100, 100, 400, 200)
-        self.setFixedSize(400, 200)  # 창 크기 고정
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)  # 최대화 비활성화
-
+        self.setGeometry(100, 100, 400, 300)
+        self.setFixedSize(400, 300)
+        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
+        
+        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
+        self.setWindowIcon(QIcon(icon_path))
+        
         container = QWidget()
         self.setCentralWidget(container)
         layout = QVBoxLayout()

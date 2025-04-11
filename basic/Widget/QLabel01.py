@@ -1,4 +1,7 @@
+import os
 import sys
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow ,QLabel
 
 class MainWindow(QMainWindow): # 메인 윈도우를 정의
@@ -6,7 +9,12 @@ class MainWindow(QMainWindow): # 메인 윈도우를 정의
     def __init__(self):
         super().__init__()
         self.setWindowTitle("첫 번째 PySide6 앱")
-        self.setGeometry(100, 100, 600, 400)
+        self.setGeometry(100, 100, 400, 300)
+        self.setFixedSize(400, 300)
+        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
+        
+        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
+        self.setWindowIcon(QIcon(icon_path))
         
         label = QLabel("Hello PySide6!") #레이블 텍스트 지정  
         self.setCentralWidget(label) # 메인 윈도우의 중앙에 위젯 배치 : 하나의 위젯만 가능

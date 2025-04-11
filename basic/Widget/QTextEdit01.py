@@ -1,15 +1,19 @@
+import os
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QTextEdit, QLabel, QPushButton, QWidget, QVBoxLayout, QHBoxLayout
-from PySide6.QtCore import Qt
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QTextEdit, QLabel, QPushButton, QWidget, QVBoxLayout, QHBoxLayout
 
-class MainWindow(QMainWindow):
+
+
+
+
+
+
+class MainWindow(BaseWindow):
     def __init__(self):
-        super().__init__()
+        super().__init__("test")
 
-        self.setWindowTitle("QTextEdit 예제")
-        self.setGeometry(100, 100, 400, 300)
-        self.setFixedSize(400, 300)
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
 
         container = QWidget()
         layout = QVBoxLayout()

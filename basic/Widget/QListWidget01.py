@@ -1,6 +1,9 @@
+import os
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QListWidget, QListWidgetItem, QLabel, QPushButton, QWidget, QVBoxLayout
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QApplication, QMainWindow, QListWidget, QListWidgetItem, QLabel, QPushButton, QWidget, QVBoxLayout
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -10,10 +13,11 @@ class MainWindow(QMainWindow):
         # 창 타이틀, 초기 위치 및 크기
         self.setWindowTitle("QListWidget 예제")
         self.setGeometry(100, 100, 400, 300)
-
-        # 창 크기 고정 + 최대화 버튼 비활성화
-        self.setFixedSize(400, 300)  # 창 크기 고정
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint) # 최대화 비활성화, 최소화/닫기 활성
+        self.setFixedSize(400, 300)
+        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
+        
+        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
+        self.setWindowIcon(QIcon(icon_path))
 
         container = QWidget()
         self.setCentralWidget(container)

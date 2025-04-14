@@ -1,21 +1,12 @@
-import os
-import sys
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QWidget, QVBoxLayout
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QPushButton, QLabel, QLineEdit, QWidget, QVBoxLayout
 
-class MainWindow(QMainWindow):
+class MainWindow(BaseWindow):
     def __init__(self):
-        super().__init__()
-
-        # 윈도우 타이틀 및 크기 설정
-        self.setWindowTitle("QLineEdit 예제")
-        self.setGeometry(100, 100, 400, 300)
-        self.setFixedSize(400, 300)
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
         
-        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
-        self.setWindowIcon(QIcon(icon_path))
+        super().__init__("QLineEdit 예제")
 
         # 다른 위젯/레이아웃을 담아둘 컨테이너 (QWidget)
         container = QWidget()

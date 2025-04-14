@@ -1,28 +1,18 @@
-import os
-import sys
+import os, sys
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QPlainTextEdit, QLabel, QPushButton, QWidget, QVBoxLayout, QHBoxLayout
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QPlainTextEdit, QLabel, QPushButton, QWidget, QVBoxLayout, QHBoxLayout
 
-
-icon_path = os.path.join(os.path.dirname(__file__), "..", "assets", "icon.png")
-
-class MainWindow(QMainWindow):
+class MainWindow(BaseWindow):
     
     '''
         QPlainTextEdit - 리치 텍스트 (HTML, 서식) 지원 안함!!!!!!
     '''
     
     def __init__(self):
-        super().__init__()
 
-        self.setWindowTitle("QPlainTextEdit 예제")
-        self.setGeometry(100, 100, 400, 300)
-        self.setFixedSize(400, 300)
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
-        
-        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
-        self.setWindowIcon(QIcon(icon_path))
+        super().__init__("QPlainTextEdit 예제")
 
         container = QWidget()
         layout = QVBoxLayout()

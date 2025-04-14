@@ -1,18 +1,13 @@
-import os
-import sys
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QPushButton,
-    QLabel, QWidget, QVBoxLayout, QHBoxLayout, QFrame
-)
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QPushButton, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QFrame
 
-class MainWindow(QMainWindow):
+
+class MainWindow(BaseWindow):
     def __init__(self):
-        super().__init__()
-
-        # 메인 윈도우 설정
-        self.setWindowTitle("PySide6 Layout")
-        self.setGeometry(100, 100, 600, 400)
+        
+        super().__init__("QVBoxLayout 예제")
         
         container = QWidget() # 위젯 컨테이너
         main_layout = QVBoxLayout() # 컨테이너 내부의 전체 레이아웃 

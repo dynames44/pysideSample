@@ -1,20 +1,12 @@
-import os
-import sys
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox, QLabel, QPushButton, QWidget, QVBoxLayout
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QComboBox, QLabel, QPushButton, QWidget, QVBoxLayout
 
-class MainWindow(QMainWindow):
+class MainWindow(BaseWindow):
     def __init__(self):
-        super().__init__()
 
-        self.setWindowTitle("QComboBox 예제")
-        self.setGeometry(100, 100, 400, 300)
-        self.setFixedSize(400, 300)
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
-        
-        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
-        self.setWindowIcon(QIcon(icon_path))
+        super().__init__("QComboBox 예제")
 
         # 메인 컨테이너
         container = QWidget()

@@ -1,20 +1,12 @@
-import os
-import sys
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QMessageBox
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QPushButton, QMessageBox
 
-class MainWindow(QMainWindow):
+class MainWindow(BaseWindow):
     def __init__(self):
-        super().__init__()
 
-        self.setWindowTitle("PySide6 버튼 클릭 예제")
-        self.setGeometry(100, 100, 400, 300)
-        self.setFixedSize(400, 300)
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
-        
-        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
-        self.setWindowIcon(QIcon(icon_path))
+        super().__init__("QPushButton 예제")
 
         # QPushButton 생성
         button = QPushButton("클릭!!")

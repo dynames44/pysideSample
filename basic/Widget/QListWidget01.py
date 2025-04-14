@@ -1,23 +1,14 @@
-import os
-import sys
+import os, sys
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QListWidget, QListWidgetItem, QLabel, QPushButton, QWidget, QVBoxLayout
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from common.SampleBaseWindow import SampleBaseWindow as BaseWindow
+from PySide6.QtWidgets import QApplication, QListWidget, QListWidgetItem, QLabel, QPushButton, QWidget, QVBoxLayout
 
 
-class MainWindow(QMainWindow):
+class MainWindow(BaseWindow):
     def __init__(self):
         
-        super().__init__()
-
-        # 창 타이틀, 초기 위치 및 크기
-        self.setWindowTitle("QListWidget 예제")
-        self.setGeometry(100, 100, 400, 300)
-        self.setFixedSize(400, 300)
-        self.setWindowFlags(Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
-        
-        icon_path = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "icon.png")
-        self.setWindowIcon(QIcon(icon_path))
+        super().__init__("QListWidget 예제")
 
         container = QWidget()
         self.setCentralWidget(container)
